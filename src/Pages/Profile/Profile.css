@@ -1,0 +1,48 @@
+.profile-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.profile-avatar-circle {
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transition: width 0.05s linear, height 0.05s linear;
+  flex-shrink: 0;
+}
+
+.profile-avatar-initials {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  user-select: none;
+  transition: font-size 0.05s linear;
+}
+
+.profile-name {
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  transition: font-size 0.05s linear, transform 0.05s linear;
+}

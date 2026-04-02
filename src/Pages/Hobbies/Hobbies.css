@@ -1,0 +1,230 @@
+.hobbies-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 100px 60px 60px 60px;
+  position: relative;
+}
+
+.hobbies-content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.hobbies-icon-section {
+  width: 30%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hobbies-icon-section.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hobbies-gamepad-icon {
+  width: 360px;
+  height: 360px;
+  color: rgba(255, 255, 255, 0.9);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+.hobbies-right-section {
+  width: 70%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.hobbies-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hobbies-title {
+  font-size: 64px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  text-align: left;
+}
+
+.hobbies-cards-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.hobby-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: cardSlideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes cardSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hobby-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-8px);
+}
+
+.hobby-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.hobby-card:hover .hobby-icon-circle {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.hobby-icon {
+  width: 40px;
+  height: 40px;
+  color: white;
+  stroke-width: 2;
+}
+
+.hobby-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .hobbies-content {
+    gap: 40px;
+  }
+
+  .hobbies-icon-section {
+    width: 25%;
+  }
+
+  .hobbies-right-section {
+    width: 75%;
+  }
+
+  .hobbies-title {
+    font-size: 56px;
+  }
+
+  .hobbies-gamepad-icon {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hobbies-grid {
+    gap: 25px;
+  }
+
+  .hobby-card {
+    padding: 30px 20px;
+  }
+
+  .hobby-icon-circle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .hobby-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .hobby-name {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hobbies-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hobbies-icon-section {
+    width: 100%;
+  }
+
+  .hobbies-right-section {
+    width: 100%;
+  }
+
+  .hobbies-title {
+    font-size: 48px;
+  }
+
+  .hobbies-gamepad-icon {
+    width: 200px;
+    height: 200px;
+    stroke-width: 1.2;
+  }
+
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .hobby-card {
+    padding: 25px 15px;
+  }
+
+  .hobby-icon-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hobby-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hobby-name {
+    font-size: 16px;
+  }
+}

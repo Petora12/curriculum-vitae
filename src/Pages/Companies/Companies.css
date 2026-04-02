@@ -1,0 +1,138 @@
+.companies-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 100px 60px 60px 60px;
+  position: relative;
+}
+
+.companies-content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.companies-icon-section {
+  width: 30%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.companies-icon-section.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.companies-icon-section.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.companies-building-icon {
+  width: 360px;
+  height: 360px;
+  color: rgba(255, 255, 255, 0.9);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+.companies-right-section {
+  width: 70%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.companies-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.companies-title {
+  font-size: 64px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  text-align: left;
+}
+
+.companies-cards-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.companies-grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .companies-content {
+    gap: 40px;
+  }
+
+  .companies-icon-section {
+    width: 25%;
+  }
+
+  .companies-right-section {
+    width: 75%;
+  }
+
+  .companies-title {
+    font-size: 56px;
+  }
+
+  .companies-building-icon {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .companies-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .companies-icon-section {
+    width: 100%;
+  }
+
+  .companies-right-section {
+    width: 100%;
+  }
+
+  .companies-title {
+    font-size: 48px;
+  }
+
+  .companies-building-icon {
+    width: 200px;
+    height: 200px;
+    stroke-width: 1.2;
+  }
+
+  .companies-grid {
+    flex-direction: column;
+  }
+}

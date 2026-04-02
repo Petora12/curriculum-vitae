@@ -1,0 +1,255 @@
+.contacts-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 100px 60px 60px 60px;
+  position: relative;
+}
+
+.contacts-content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.contacts-icon-section {
+  width: 30%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contacts-icon-section.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contacts-mail-icon {
+  width: 360px;
+  height: 360px;
+  color: rgba(255, 255, 255, 0.9);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+.contacts-right-section {
+  width: 70%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.contacts-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contacts-title {
+  font-size: 64px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  text-align: left;
+}
+
+.contacts-cards-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: cardSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes cardSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(10px);
+}
+
+.contact-icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-icon-circle {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.contact-icon {
+  width: 32px;
+  height: 32px;
+  color: white;
+  stroke-width: 2;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.contact-type {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  text-align: left;
+}
+
+.contact-value {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .contacts-content {
+    gap: 40px;
+  }
+
+  .contacts-icon-section {
+    width: 25%;
+  }
+
+  .contacts-right-section {
+    width: 75%;
+  }
+
+  .contacts-title {
+    font-size: 56px;
+  }
+
+  .contacts-mail-icon {
+    width: 300px;
+    height: 300px;
+  }
+
+  .contacts-list {
+    max-width: 550px;
+  }
+
+  .contact-card {
+    padding: 22px 28px;
+  }
+
+  .contact-icon-circle {
+    width: 65px;
+    height: 65px;
+  }
+
+  .contact-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .contact-type {
+    font-size: 18px;
+  }
+
+  .contact-value {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contacts-icon-section {
+    width: 100%;
+  }
+
+  .contacts-right-section {
+    width: 100%;
+  }
+
+  .contacts-title {
+    font-size: 48px;
+  }
+
+  .contacts-mail-icon {
+    width: 200px;
+    height: 200px;
+    stroke-width: 1.2;
+  }
+
+  .contacts-list {
+    max-width: 100%;
+  }
+
+  .contact-card {
+    padding: 20px 25px;
+  }
+
+  .contact-icon-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .contact-type {
+    font-size: 17px;
+  }
+
+  .contact-value {
+    font-size: 14px;
+  }
+}
