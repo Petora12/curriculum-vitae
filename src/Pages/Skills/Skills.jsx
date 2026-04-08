@@ -11,7 +11,7 @@ const SKILLS_CATEGORIES = {
   DevOps: ['CI/CD', 'Pipelines'],
   'Project Management': ['JIRA', 'Confluence', 'Agile'],
   'Build Tools': ['Vite', 'Rollup'],
-  Styling: ['SCSS'],
+  Styling: ['SCSS', 'CSS'],
   'State Management': ['Redux', 'Pinia'],
   'Soft Skills': [
     'Teamwork',
@@ -41,7 +41,7 @@ const Skills = ({ scrollContainerRef }) => {
       {
         threshold: [0.75],
         root: scrollContainerRef?.current || null,
-      }
+      },
     );
 
     if (pageRef.current) {
@@ -93,7 +93,7 @@ const Skills = ({ scrollContainerRef }) => {
                     ))}
                   </div>
                 </div>
-              )
+              ),
             )}
           </div>
         </div>

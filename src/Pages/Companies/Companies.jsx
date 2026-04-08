@@ -79,7 +79,7 @@ const Companies = ({ scrollContainerRef }) => {
       {
         threshold: [0.75], // Trigger when 75% visible (mostly snapped)
         root: scrollContainerRef?.current || null,
-      }
+      },
     );
 
     if (pageRef.current) {
@@ -120,7 +120,11 @@ const Companies = ({ scrollContainerRef }) => {
         {/* Right side - Title and Company Cards */}
         <div className="companies-right-section">
           <div className="companies-content-wrapper">
-            <h1 className="companies-title">companies.</h1>
+            <h1
+              className={`companies-title ${expandedCompany ? 'is-hidden' : ''}`}
+            >
+              companies.
+            </h1>
             <div className="companies-cards-section">
               <div className="companies-grid">
                 {COMPANIES_DATA.map((company) => (

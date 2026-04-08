@@ -24,13 +24,13 @@ const CONTACTS_DATA = [
     icon: FileText,
     link: '/path-to-your-cv.pdf', // Update with actual CV path
   },
-  // {
-  //   id: 4,
-  //   type: 'GitHub',
-  //   value: 'github.com/yourusername',
-  //   icon: Github,
-  //   link: 'https://github.com/yourusername',
-  // },
+  {
+    id: 4,
+    type: 'GitHub',
+    value: 'github.com/yourusername',
+    icon: Github,
+    link: 'https://github.com/yourusername',
+  },
 ];
 
 const Contacts = ({ scrollContainerRef }) => {
@@ -52,7 +52,7 @@ const Contacts = ({ scrollContainerRef }) => {
       {
         threshold: [0.75],
         root: scrollContainerRef?.current || null,
-      }
+      },
     );
 
     if (pageRef.current) {
