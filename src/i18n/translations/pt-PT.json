@@ -1,0 +1,85 @@
+{
+  "pages": {
+    "about": {
+      "title": "sobre",
+      "text": "Sou um Frontend Developer entusiasta com 7 anos de experiência em construir aplicações web apelativas e intuitivas. Proificiente em TypeScript, JavaScript, SCSS, HTML e frameworks como Lit, React, Vue e Angular. Prospero a traduzir conceitos de design em código de alta qualidade, em colaboração com equipas multi-disciplinares para entregar soluções dentro do tempo. Estou sempre interessado em aprender novas tecnologias, e sou empenhado em melhorar a experiência do utilizador através de código limpo e sustentável. Vamos criar soluções digitais juntos!"
+    },
+    "companies": {
+      "title": "empresas",
+      "items": {
+        "capgemini": {
+          "role": "Programador Frontend",
+          "location": "Fundão, Portugal",
+          "details": [
+            "Desenvolvi e mantive aplicações web utilizando React e Node.js, melhorando a experiência do utilizador e o desempenho do sistema.",
+            "Colaborei com equipas multidisciplinares, incluindo designers, gestores de produto e outros engenheiros, para entregar soluções de software de elevada qualidade.",
+            "Implementei designs responsivos e assegurei a compatibilidade entre navegadores em todas as aplicações web.",
+            "Participei em revisões de código e orientei programadores juniores em boas práticas e normas de codificação."
+          ]
+        },
+        "softinsa": {
+          "role": "Programador Frontend",
+          "location": "Fundão, Portugal",
+          "details": [
+            "Construí interfaces de utilizador modernas e responsivas utilizando Vue.js e frameworks CSS modernas.",
+            "Trabalhei em estreita colaboração com designers de UX para implementar designs perfeitos ao pixel e animações fluidas.",
+            "Otimizei o desempenho da aplicação e reduzi os tempos de carregamento em 40% através de code splitting e lazy loading.",
+            "Integrei APIs RESTful e geri o estado com Vuex para fluxos de aplicação complexos."
+          ]
+        }
+      }
+    },
+    "schooling": {
+      "title": "educação",
+      "degree": "Licenciatura em Engenharia Informática"
+    },
+    "skills": {
+      "title": "competências",
+      "categories": {
+        "Frontend Frameworks": "Frontend frameworks",
+        "Backend": "Backend",
+        "Version Control": "Versionamento",
+        "Project Management": "Gestão de projeto",
+        "Styling": "Estilos",
+        "Languages": "Línguas programação",
+        "Testing": "Testes",
+        "DevOps": "DevOps",
+        "Build Tools": "Ferramentas de build",
+        "State Management": "Gestão de estado",
+        "Soft Skills": "Competências soft"
+      },
+      "soft-skills": {
+        "teamwork": "Trabalho de equipa",
+        "adaptability": "Adaptabilidade",
+        "problem-solving": "Resolução de problemas",
+        "quick-learner": "Aprendizagem",
+        "communication": "Comunicação"
+      }
+    },
+    "languages": {
+      "title": "idiomas",
+      "portuguese": "Português",
+      "english": "Inglês",
+      "proeficency": {
+        "native": "Nativo",
+        "fluent": "Fluente"
+      }
+    },
+    "hobbies": {
+      "title": "Passatempos",
+      "videogames": "Videojogos",
+      "movies": "Filmes & Séries",
+      "music": "Música",
+      "livestreams": "Livestreams",
+      "travel": "Viajar",
+      "technology": "Tecnologia"
+    },
+    "contacts": {
+      "title": "contactos"
+    }
+  },
+  "buttons": {
+    "submit": "Enviar",
+    "cancel": "Cancelar"
+  }
+}

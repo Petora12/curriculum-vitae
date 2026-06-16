@@ -1,21 +1,22 @@
 import { Mail, Linkedin, FileText, Github } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import './Contacts.css';
+import { useTranslation } from '../../hooks/useTranslation';
 
 const CONTACTS_DATA = [
   {
     id: 1,
     type: 'Email',
-    value: 'your.email@example.com',
+    value: 'pedrommsilvestre@gmail.com',
     icon: Mail,
-    link: 'mailto:your.email@example.com',
+    link: 'mailto:pedrommsilvestre@gmail.com',
   },
   {
     id: 2,
     type: 'LinkedIn',
-    value: 'linkedin.com/in/yourprofile',
+    value: 'linkedin.com/in/pedrommsilvestre',
     icon: Linkedin,
-    link: 'https://linkedin.com/in/yourprofile',
+    link: 'https://linkedin.com/in/pedrommsilvestre',
   },
   {
     id: 3,
@@ -27,13 +28,14 @@ const CONTACTS_DATA = [
   {
     id: 4,
     type: 'GitHub',
-    value: 'github.com/yourusername',
+    value: 'github.com/Petora12',
     icon: Github,
-    link: 'https://github.com/yourusername',
+    link: 'https://github.com/Petora12',
   },
 ];
 
 const Contacts = ({ scrollContainerRef }) => {
+  const { t } = useTranslation();
   const [isIconVisible, setIsIconVisible] = useState(false);
   const pageRef = useRef(null);
 
@@ -81,7 +83,7 @@ const Contacts = ({ scrollContainerRef }) => {
         {/* Right side - Title and Contact Cards */}
         <div className="contacts-right-section">
           <div className="contacts-content-wrapper">
-            <h1 className="contacts-title">contacts.</h1>
+            <h1 className="contacts-title">{t('pages.contacts.title')}.</h1>
             <div className="contacts-cards-section">
               <div className="contacts-list">
                 {CONTACTS_DATA.map((contact, index) => {

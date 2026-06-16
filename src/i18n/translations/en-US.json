@@ -1,0 +1,82 @@
+{
+  "pages": {
+    "about": {
+      "title": "about",
+      "text": "Enthusiastic Frontend Developer with 7 years of experience in crafting engaging and user-friendly web applications. Proficient in TypeScript, JavaScript, SCSS, HTML, and frameworks like Lit, React, Vue and Angular. I thrive on translating design concepts into high-quality code, collaborating with cross-functional teams to deliver solutions on time. Always eager to embrace new technologies, I am committed to enhancing user experiences through clean, maintainable code. Let's create innovative digital solutions together!"
+    },
+    "companies": {
+      "title": "companies",
+      "items": {
+        "capgemini": {
+          "role": "Frontend Developer",
+          "location": "Fundão, Portugal",
+          "details": [
+            "Designed and developed an internal web application for managing consultant assignments and performance tracking, utilizing React and TypeScript . This innovation streamlined operational processes and achieved a 20% reduction in administrative time , enhancing overall efficiency.",
+            "Developed two web applications (Apple Music and Spotify) for Volkswagen's infotainment system, significantly enhancing user experience and functionality. Collaborated within an Agile Scrum team , employing Angular with TypeScript and Jasmine for unit testing, resulting in a 15% reduction in bugs and improved overall code quality."
+          ]
+        },
+        "softinsa": {
+          "role": "Frontend Developer",
+          "location": "Fundão, Portugal",
+          "details": [
+            "Developed a robust web application for Global Via , enabling users to effortlessly manage toll payments and access additional services. Leveraged React and TypeScript to implement scalable micro-frontends, enhancing performance and user experience.",
+            "Developed web components and a full-stack web application for BMW , leveraging the Lit framework and TypeScript for building a web components library that were used as widgets in the sales website for BMW and MINI cars. Also helped develop a cockpit web application where this library of web components was used, as an additional tool for agents as well as testing the same widgets that were to be implemented in the sales website. This web application used the Lit framework for Frontend, alongside Node.js with Express.js for the backend. Actively collaborated within an Agile Scrum team , fostering continuous dialogue and idea exchange both with the development team and with the client. This project required some travelling to the client’s site for planning sessions and team-building events, enhancing project alignment and collaboration.",
+            "Leading the frontend development of a web application to create a robust and efficient solution for the management of public contracts and documents, within an Agile Scrum team, using AI tools, like Cline and Claude models, to boost development. Utilized Vue 3, Vuetifty and TypeScript, collaborated with an UX/UI designer to translate their Figma design system to the Frontend of the application. Also helped in the backend development, which used Java, Spring Boot and PostgreSQL to develop some full stack skills."
+          ]
+        }
+      }
+    },
+    "schooling": {
+      "title": "education",
+      "degree": "Bachelor's degree in Software Engineering"
+    },
+    "skills": {
+      "title": "skills",
+      "categories": {
+        "Frontend Frameworks": "Frontend frameworks",
+        "Backend": "Backend",
+        "Version Control": "Version Control",
+        "Project Management": "Project Management",
+        "Styling": "Styling",
+        "Languages": "Languages",
+        "Testing": "Testing",
+        "DevOps": "DevOps",
+        "Build Tools": "Build Tools",
+        "State Management": "State Management",
+        "Soft Skills": "Soft Skills"
+      },
+      "soft-skills": {
+        "teamwork": "Teamwork",
+        "adaptability": "Adaptability",
+        "problem-solving": "Problem Solving",
+        "quick-learner": "Quick Learner",
+        "communication": "Communication"
+      }
+    },
+    "languages": {
+      "title": "languages",
+      "portuguese": "Portuguese",
+      "english": "English",
+      "proeficency": {
+        "native": "Native",
+        "fluent": "Fluent"
+      }
+    },
+    "hobbies": {
+      "title": "hobbies",
+      "videogames": "Videogames",
+      "movies": "Movies & Series",
+      "music": "Music",
+      "livestreams": "Livestreams",
+      "travel": "Travel",
+      "technology": "Technology"
+    },
+    "contacts": {
+      "title": "contacts"
+    }
+  },
+  "buttons": {
+    "submit": "Submit",
+    "cancel": "Cancel"
+  }
+}

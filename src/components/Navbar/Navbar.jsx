@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import './Navbar.css';
+import { useTranslation } from '../../hooks/useTranslation';
 
 const Navbar = ({ scrollProgress }) => {
-  const [activeLanguage, setActiveLanguage] = useState('PT');
+  const { language, setLanguage } = useTranslation();
+  console.log('LANG ', language);
 
   return (
     <nav
@@ -17,15 +18,15 @@ const Navbar = ({ scrollProgress }) => {
 
         <div className="navbar-language-button">
           <span
-            className={activeLanguage === 'EN' ? 'navbar-language-active' : ''}
-            onClick={() => setActiveLanguage('EN')}
+            className={language === 'en-US' ? 'navbar-language-active' : ''}
+            onClick={() => setLanguage('en-US')}
           >
             EN
           </span>
           <span className="navbar-separator">/</span>
           <span
-            className={activeLanguage === 'PT' ? 'navbar-language-active' : ''}
-            onClick={() => setActiveLanguage('PT')}
+            className={language === 'pt-PT' ? 'navbar-language-active' : ''}
+            onClick={() => setLanguage('pt-PT')}
           >
             PT
           </span>

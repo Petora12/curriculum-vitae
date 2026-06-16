@@ -1,27 +1,29 @@
 import { Languages } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import './Languages.css';
-
-const LANGUAGES_DATA = [
-  {
-    id: 1,
-    name: 'Portuguese',
-    country: 'Portugal',
-    proficiency: 'Native',
-    flag: '🇵🇹', // Portugal flag emoji
-  },
-  {
-    id: 2,
-    name: 'English',
-    country: 'US/UK',
-    proficiency: 'Fluent',
-    flag: '🇬🇧', // UK flag emoji (or use 🇺🇸 for US)
-  },
-];
+import { useTranslation } from '../../hooks/useTranslation';
 
 const LanguagesPage = ({ scrollContainerRef }) => {
+  const { t } = useTranslation();
   const [isIconVisible, setIsIconVisible] = useState(false);
   const pageRef = useRef(null);
+
+  const LANGUAGES_DATA = [
+    {
+      id: 1,
+      name: t('pages.languages.portuguese'),
+      country: 'Portugal',
+      proficiency: t('pages.languages.proeficency.native'),
+      flag: '🇵🇹', // Portugal flag emoji
+    },
+    {
+      id: 2,
+      name: t('pages.languages.english'),
+      country: 'US/UK',
+      proficiency: t('pages.languages.proeficency.fluent'),
+      flag: '🇬🇧', // UK flag emoji (or use 🇺🇸 for US)
+    },
+  ];
 
   // Intersection Observer for snap detection
   useEffect(() => {
@@ -38,7 +40,7 @@ const LanguagesPage = ({ scrollContainerRef }) => {
       {
         threshold: [0.75],
         root: scrollContainerRef?.current || null,
-      }
+      },
     );
 
     if (pageRef.current) {
@@ -67,7 +69,7 @@ const LanguagesPage = ({ scrollContainerRef }) => {
         {/* Right side - Title and Language Cards */}
         <div className="languages-right-section">
           <div className="languages-content-wrapper">
-            <h1 className="languages-title">languages.</h1>
+            <h1 className="languages-title">{t('pages.languages.title')}.</h1>
             <div className="languages-cards-section">
               <div className="languages-cards-container">
                 {LANGUAGES_DATA.map((language, index) => (

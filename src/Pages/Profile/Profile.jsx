@@ -1,4 +1,6 @@
 import './Profile.css';
+import profileAvatar from '../../assets/profile_pic.png';
+import { ChevronDown } from 'lucide-react';
 
 const Profile = ({ scrollProgress }) => {
   // Phase 1: Profile to About (0-1) - Move to left
@@ -9,8 +11,7 @@ const Profile = ({ scrollProgress }) => {
     avatarScale,
     nameScale,
     nameTranslateX,
-    nameTranslateY,
-    isFixed;
+    nameTranslateY;
 
   if (scrollProgress < 1) {
     // Phase 1: Center to left of screen (0 to 1)
@@ -28,7 +29,6 @@ const Profile = ({ scrollProgress }) => {
     nameScale = 1;
     nameTranslateX = 0;
     nameTranslateY = 0;
-    isFixed = phase1Progress > 0;
   } else if (scrollProgress >= 1 && scrollProgress < 2) {
     // Phase 2: Left to navbar top-left (1 to 2)
     const phase2Progress = scrollProgress - 1; // 0 to 1
@@ -43,18 +43,16 @@ const Profile = ({ scrollProgress }) => {
 
     avatarScale = 1 - phase2Progress * 0.75;
     nameScale = 1 - phase2Progress * 0.5;
-    nameTranslateX = phase2Progress * 90;
+    nameTranslateX = phase2Progress * 125;
     nameTranslateY = phase2Progress * -67;
-    isFixed = true;
   } else {
     // Phase 3: Locked in navbar (2+)
     currentY = 6.5;
     currentX = 6;
     avatarScale = 0.25;
     nameScale = 0.5;
-    nameTranslateX = 90;
+    nameTranslateX = 125;
     nameTranslateY = -67;
-    isFixed = true;
   }
 
   return (
@@ -62,29 +60,22 @@ const Profile = ({ scrollProgress }) => {
       <div
         className="profile-content"
         style={{
-          position: isFixed ? 'fixed' : 'relative',
-          top: isFixed ? `${currentY}vh` : 'auto',
-          left: isFixed ? `${currentX}vw` : 'auto',
-          transform: isFixed ? 'translate(-50%, -50%)' : 'none',
+          position: scrollProgress > 0 ? 'fixed' : 'relative',
+          top: scrollProgress > 0 ? `${currentY}vh` : 'auto',
+          left: scrollProgress > 0 ? `${currentX}vw` : 'auto',
+          transform: scrollProgress > 0 ? 'translate(-50%, -50%)' : 'none',
           zIndex: 1001,
         }}
       >
-        <div
+        <img
           className="profile-avatar-circle"
+          src={profileAvatar}
+          alt="avatar"
           style={{
             width: `${200 * avatarScale}px`,
             height: `${200 * avatarScale}px`,
           }}
-        >
-          <span
-            className="profile-avatar-initials"
-            style={{
-              fontSize: `${72 * avatarScale}px`,
-            }}
-          >
-            JD
-          </span>
-        </div>
+        />
         <h1
           className="profile-name"
           style={{
@@ -92,8 +83,23 @@ const Profile = ({ scrollProgress }) => {
             transform: `translate(${nameTranslateX}px, ${nameTranslateY}px)`,
           }}
         >
-          John Doe
+          Pedro Silvestre
         </h1>
+      </div>
+      <div
+        className="chevron-container"
+        style={{
+          position: 'absolute',
+          bottom: '2rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          opacity: Math.max(0, 1 - scrollProgress * 4),
+          pointerEvents: 'none',
+        }}
+      >
+        <ChevronDown className="chevron-icon" size={36} />
+        <ChevronDown className="chevron-icon" size={36} />
+        <ChevronDown className="chevron-icon" size={36} />
       </div>
     </div>
   );

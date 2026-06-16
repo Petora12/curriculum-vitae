@@ -1,10 +1,13 @@
 import { GraduationCap } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
+import uniLogo from '../../assets/ubi_logo.jpg';
 import './Schooling.css';
 
 const Schooling = ({ scrollContainerRef }) => {
   const [isIconVisible, setIsIconVisible] = useState(false);
   const pageRef = useRef(null);
+  const { t } = useTranslation();
 
   // Intersection Observer for snap detection
   useEffect(() => {
@@ -23,7 +26,7 @@ const Schooling = ({ scrollContainerRef }) => {
       {
         threshold: [0.75], // Trigger when 75% visible (mostly snapped)
         root: scrollContainerRef?.current || null,
-      }
+      },
     );
 
     if (pageRef.current) {
@@ -51,29 +54,31 @@ const Schooling = ({ scrollContainerRef }) => {
 
         {/* Right side - Title and Education Details */}
         <div className="schooling-right-section">
-          <h1 className="schooling-title">education.</h1>
+          <h1 className="schooling-title">{t('pages.schooling.title')}.</h1>
           <div className="schooling-details-section">
             <div className="education-card">
               <div className="education-card-content">
                 {/* University Logo */}
                 <div className="education-logo-container">
                   <img
-                    src="https://via.placeholder.com/120"
-                    alt="Stanford University"
+                    src={uniLogo}
+                    alt="Universidade da Beira Interior"
                     className="education-logo"
                   />
                 </div>
 
                 {/* University Details */}
                 <div className="education-info">
-                  <h2 className="education-university">Stanford University</h2>
+                  <h2 className="education-university">
+                    Universidade da Beira Interior
+                  </h2>
                   <p className="education-period-location">
-                    2016 - 2020
+                    2012 - 2018
                     <span className="education-location-separator">•</span>
-                    Stanford, USA
+                    Covilhã, Portugal
                   </p>
                   <p className="education-course">
-                    Bachelor of Science in Computer Science
+                    {t('pages.schooling.degree')}
                   </p>
                 </div>
               </div>

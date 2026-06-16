@@ -1,43 +1,45 @@
 import { Gamepad2, Film, Music, Radio, Plane, Cpu } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import './Hobbies.css';
-
-const HOBBIES_DATA = [
-  {
-    id: 1,
-    name: 'Videogames',
-    icon: Gamepad2,
-  },
-  {
-    id: 2,
-    name: 'Movies & Series',
-    icon: Film,
-  },
-  {
-    id: 3,
-    name: 'Music',
-    icon: Music,
-  },
-  {
-    id: 4,
-    name: 'Livestreams',
-    icon: Radio,
-  },
-  {
-    id: 5,
-    name: 'Travel',
-    icon: Plane,
-  },
-  {
-    id: 6,
-    name: 'Technology',
-    icon: Cpu,
-  },
-];
+import { useTranslation } from '../../hooks/useTranslation';
 
 const Hobbies = ({ scrollContainerRef }) => {
+  const { t } = useTranslation();
   const [isIconVisible, setIsIconVisible] = useState(false);
   const pageRef = useRef(null);
+
+  const HOBBIES_DATA = [
+    {
+      id: 1,
+      name: t('pages.hobbies.videogames'),
+      icon: Gamepad2,
+    },
+    {
+      id: 2,
+      name: t('pages.hobbies.movies'),
+      icon: Film,
+    },
+    {
+      id: 3,
+      name: t('pages.hobbies.music'),
+      icon: Music,
+    },
+    {
+      id: 4,
+      name: t('pages.hobbies.livestreams'),
+      icon: Radio,
+    },
+    {
+      id: 5,
+      name: t('pages.hobbies.travel'),
+      icon: Plane,
+    },
+    {
+      id: 6,
+      name: t('pages.hobbies.technology'),
+      icon: Cpu,
+    },
+  ];
 
   // Intersection Observer for snap detection
   useEffect(() => {
@@ -54,7 +56,7 @@ const Hobbies = ({ scrollContainerRef }) => {
       {
         threshold: [0.75],
         root: scrollContainerRef?.current || null,
-      }
+      },
     );
 
     if (pageRef.current) {
@@ -83,7 +85,7 @@ const Hobbies = ({ scrollContainerRef }) => {
         {/* Right side - Title and Hobby Cards */}
         <div className="hobbies-right-section">
           <div className="hobbies-content-wrapper">
-            <h1 className="hobbies-title">hobbies.</h1>
+            <h1 className="hobbies-title">{t('pages.hobbies.title')}.</h1>
             <div className="hobbies-cards-section">
               <div className="hobbies-grid">
                 {HOBBIES_DATA.map((hobby, index) => {

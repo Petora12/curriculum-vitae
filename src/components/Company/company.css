@@ -8,114 +8,30 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   min-width: 280px;
   max-width: 320px;
   position: relative;
-  opacity: 1;
+  cursor: pointer;
+  border: 2px solid transparent;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
 }
 
-.company-card:hover:not(.is-expanded) {
+.company-card:hover:not(.is-selected) {
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.15);
 }
 
-.company-card.is-expanded {
-  padding: 50px;
-  background: rgba(255, 255, 255, 0.15);
-  /* Remove size constraints when expanded */
-  min-width: auto;
-  max-width: none;
-  /* Ensure it fills the available space */
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-}
-
-.company-card.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.company-card-placeholder {
-  flex-shrink: 0;
-}
-
-.company-close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+.company-card.is-selected {
   background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 10;
-  padding: 0;
-  animation: fadeIn 0.3s ease;
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-.company-close-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.company-original-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  animation: fadeIn 0.3s ease;
-}
-
-.company-expanded-layout {
-  display: flex;
-  flex-direction: row;
-  gap: 80px;
-  width: 100%;
-  height: 100%;
-  animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.company-expanded-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 30px;
-  min-width: 300px;
-  flex-shrink: 0;
-  padding-top: 20px;
-}
-
-.company-expanded-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  overflow-y: auto;
-  padding-right: 10px;
-  min-width: 0; /* Important for flex items with overflow */
+.company-card.is-other-selected {
+  opacity: 0.45;
+  transform: scale(0.97);
 }
 
 .company-logo-container {
@@ -127,12 +43,6 @@
   padding: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
-}
-
-.company-logo-large {
-  width: 180px;
-  height: 180px;
-  padding: 20px;
 }
 
 .company-logo {
@@ -149,17 +59,18 @@
   width: 100%;
 }
 
-.company-role {
+.company-name {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: white;
   margin: 0;
   text-align: center;
+  font-style: italic;
 }
 
-.company-role-expanded {
-  font-size: 32px;
-  font-weight: 600;
+.company-role {
+  font-size: 18px;
+  font-weight: 500;
   color: white;
   margin: 0;
   text-align: center;
@@ -172,48 +83,8 @@
   font-weight: 500;
 }
 
-.company-dates-expanded {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0;
-  font-weight: 500;
-}
-
 .company-location {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
-}
-
-.company-location-expanded {
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-}
-
-.company-detail-paragraph {
-  font-size: 18px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  text-align: left;
-}
-
-/* Scrollbar styling */
-.company-expanded-right::-webkit-scrollbar {
-  width: 8px;
-}
-
-.company-expanded-right::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-.company-expanded-right::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
-}
-
-.company-expanded-right::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
 }
