@@ -1,44 +1,14 @@
 import { GraduationCap } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 import uniLogo from '../../assets/ubi_logo.jpg';
 import './Schooling.css';
+import { useIsCentered } from '../../hooks/useIsCentered';
 
 const Schooling = ({ scrollContainerRef }) => {
-  const [isIconVisible, setIsIconVisible] = useState(false);
   const pageRef = useRef(null);
   const { t } = useTranslation();
-
-  // Intersection Observer for snap detection
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // Trigger animation when fully visible (snapped)
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
-            setIsIconVisible(true);
-          } else {
-            // Reset animation when leaving the section
-            setIsIconVisible(false);
-          }
-        });
-      },
-      {
-        threshold: [0.75], // Trigger when 75% visible (mostly snapped)
-        root: scrollContainerRef?.current || null,
-      },
-    );
-
-    if (pageRef.current) {
-      observer.observe(pageRef.current);
-    }
-
-    return () => {
-      if (pageRef.current) {
-        observer.unobserve(pageRef.current);
-      }
-    };
-  }, [scrollContainerRef]);
+  const isIconVisible = useIsCentered(pageRef, scrollContainerRef);
 
   return (
     <div ref={pageRef} className="schooling-page">

@@ -46,3 +46,9 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@media (max-width: 768px) {
+  .scroll-container {
+    scroll-snap-type: y proximity;
+  }
+}

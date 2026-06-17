@@ -1,10 +1,23 @@
+import { useState, useEffect } from 'react';
 import './Profile.css';
 import profileAvatar from '../../assets/profile_pic.png';
 import { ChevronDown } from 'lucide-react';
 
+const useIsMobile = (query = '(max-width: 768px)') => {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' && window.matchMedia(query).matches,
+  );
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    const handler = (e) => setIsMobile(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, [query]);
+  return isMobile;
+};
+
 const Profile = ({ scrollProgress }) => {
-  // Phase 1: Profile to About (0-1) - Move to left
-  // Phase 2: About to Companies (1-2) - Move to navbar top-left
+  const isMobile = useIsMobile();
 
   let currentY,
     currentX,
@@ -13,10 +26,39 @@ const Profile = ({ scrollProgress }) => {
     nameTranslateX,
     nameTranslateY;
 
-  if (scrollProgress < 1) {
-    // Phase 1: Center to left of screen (0 to 1)
-    const phase1Progress = Math.min(scrollProgress, 1);
+  // Shared navbar end-state (Phase 3 target)
+  const navbarY = 7.5;
+  const navbarX = 6;
+  const navbarAvatarScale = 0.25;
+  const navbarNameScale = 0.5;
+  const navbarNameTX = 140;
+  const navbarNameTY = -67;
 
+  if (isMobile) {
+    // Mobile: skip the left waypoint. Phase 1 goes center -> navbar directly,
+    // then everything past scrollProgress >= 1 just holds in the navbar.
+    if (scrollProgress < 1) {
+      const p = Math.min(scrollProgress, 1);
+      const centerY = 50;
+      const centerX = 50;
+
+      currentY = centerY - (centerY - navbarY) * p;
+      currentX = centerX - (centerX - navbarX) * p;
+      avatarScale = 1 - (1 - navbarAvatarScale) * p;
+      nameScale = 1 - (1 - navbarNameScale) * p;
+      nameTranslateX = navbarNameTX * p;
+      nameTranslateY = navbarNameTY * p;
+    } else {
+      currentY = navbarY;
+      currentX = navbarX;
+      avatarScale = navbarAvatarScale;
+      nameScale = navbarNameScale;
+      nameTranslateX = navbarNameTX;
+      nameTranslateY = navbarNameTY;
+    }
+  } else if (scrollProgress < 1) {
+    // Desktop Phase 1: Center to left of screen (0 to 1)
+    const phase1Progress = Math.min(scrollProgress, 1);
     const centerY = 50;
     const centerX = 50;
     const leftY = 50;
@@ -24,35 +66,30 @@ const Profile = ({ scrollProgress }) => {
 
     currentY = centerY - (centerY - leftY) * phase1Progress;
     currentX = centerX - (centerX - leftX) * phase1Progress;
-
     avatarScale = 1;
     nameScale = 1;
     nameTranslateX = 0;
     nameTranslateY = 0;
   } else if (scrollProgress >= 1 && scrollProgress < 2) {
-    // Phase 2: Left to navbar top-left (1 to 2)
-    const phase2Progress = scrollProgress - 1; // 0 to 1
-
+    // Desktop Phase 2: Left to navbar top-left (1 to 2)
+    const phase2Progress = scrollProgress - 1;
     const leftY = 50;
     const leftX = 20;
-    const navbarY = 6.5;
-    const navbarX = 6;
 
     currentY = leftY - (leftY - navbarY) * phase2Progress;
     currentX = leftX - (leftX - navbarX) * phase2Progress;
-
     avatarScale = 1 - phase2Progress * 0.75;
     nameScale = 1 - phase2Progress * 0.5;
-    nameTranslateX = phase2Progress * 125;
+    nameTranslateX = phase2Progress * 140;
     nameTranslateY = phase2Progress * -67;
   } else {
-    // Phase 3: Locked in navbar (2+)
-    currentY = 6.5;
-    currentX = 6;
-    avatarScale = 0.25;
-    nameScale = 0.5;
-    nameTranslateX = 125;
-    nameTranslateY = -67;
+    // Desktop Phase 3: Locked in navbar (2+)
+    currentY = navbarY;
+    currentX = navbarX;
+    avatarScale = navbarAvatarScale;
+    nameScale = navbarNameScale;
+    nameTranslateX = navbarNameTX;
+    nameTranslateY = navbarNameTY;
   }
 
   return (

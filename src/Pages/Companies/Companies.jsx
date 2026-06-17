@@ -6,13 +6,14 @@ import softinsaLogo from '../../assets/softinsa_logo.png';
 import capgeminiLogo from '../../assets/capgemini_logo.png';
 import './Companies.css';
 import { useTranslation } from '../../hooks/useTranslation';
+import { useIsCentered } from '../../hooks/useIsCentered';
 
 const Companies = ({ scrollContainerRef }) => {
   const { t, tArray } = useTranslation();
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isIconVisible, setIsIconVisible] = useState(false);
   const pageRef = useRef(null);
+  const isIconVisible = useIsCentered(pageRef, scrollContainerRef);
 
   const COMPANIES_DATA = [
     {
@@ -52,35 +53,6 @@ const Companies = ({ scrollContainerRef }) => {
     // Deselect card after drawer finishes closing
     setTimeout(() => setSelectedCompany(null), 400);
   }, []);
-
-  // Intersection Observer for snap detection
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
-            setIsIconVisible(true);
-          } else {
-            setIsIconVisible(false);
-          }
-        });
-      },
-      {
-        threshold: [0.75],
-        root: scrollContainerRef?.current || null,
-      },
-    );
-
-    if (pageRef.current) {
-      observer.observe(pageRef.current);
-    }
-
-    return () => {
-      if (pageRef.current) {
-        observer.unobserve(pageRef.current);
-      }
-    };
-  }, [scrollContainerRef]);
 
   // Lock scroll while drawer is open
   useEffect(() => {

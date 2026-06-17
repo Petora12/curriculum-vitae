@@ -1,7 +1,8 @@
 import { Mail, Linkedin, FileText, Github } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import './Contacts.css';
 import { useTranslation } from '../../hooks/useTranslation';
+import { useIsCentered } from '../../hooks/useIsCentered';
 
 const CONTACTS_DATA = [
   {
@@ -36,37 +37,8 @@ const CONTACTS_DATA = [
 
 const Contacts = ({ scrollContainerRef }) => {
   const { t } = useTranslation();
-  const [isIconVisible, setIsIconVisible] = useState(false);
   const pageRef = useRef(null);
-
-  // Intersection Observer for snap detection
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
-            setIsIconVisible(true);
-          } else {
-            setIsIconVisible(false);
-          }
-        });
-      },
-      {
-        threshold: [0.75],
-        root: scrollContainerRef?.current || null,
-      },
-    );
-
-    if (pageRef.current) {
-      observer.observe(pageRef.current);
-    }
-
-    return () => {
-      if (pageRef.current) {
-        observer.unobserve(pageRef.current);
-      }
-    };
-  }, [scrollContainerRef]);
+  const isIconVisible = useIsCentered(pageRef, scrollContainerRef);
 
   return (
     <div ref={pageRef} className="contacts-page">

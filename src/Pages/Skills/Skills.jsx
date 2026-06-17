@@ -1,12 +1,13 @@
 import { Layers } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import './Skills.css';
 import { useTranslation } from '../../hooks/useTranslation';
+import { useIsCentered } from '../../hooks/useIsCentered';
 
 const Skills = ({ scrollContainerRef }) => {
   const { t } = useTranslation();
-  const [isIconVisible, setIsIconVisible] = useState(false);
   const pageRef = useRef(null);
+  const isIconVisible = useIsCentered(pageRef, scrollContainerRef);
 
   const SKILLS_CATEGORIES = {
     'Frontend Frameworks': ['React 19', 'Vue', 'Angular', 'Lit', 'Vuetify'],
@@ -27,35 +28,6 @@ const Skills = ({ scrollContainerRef }) => {
       t('pages.skills.soft-skills.communication'),
     ],
   };
-
-  // Intersection Observer for snap detection
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
-            setIsIconVisible(true);
-          } else {
-            setIsIconVisible(false);
-          }
-        });
-      },
-      {
-        threshold: [0.75],
-        root: scrollContainerRef?.current || null,
-      },
-    );
-
-    if (pageRef.current) {
-      observer.observe(pageRef.current);
-    }
-
-    return () => {
-      if (pageRef.current) {
-        observer.unobserve(pageRef.current);
-      }
-    };
-  }, [scrollContainerRef]);
 
   return (
     <div ref={pageRef} className="skills-page">
