@@ -44,6 +44,18 @@
     transform 0.05s linear;
 }
 
+.profile-role {
+  font-size: 24px;
+  font-weight: 300;
+  color: white;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  transition:
+    font-size 0.05s linear,
+    transform 0.05s linear;
+}
+
 .chevron-container {
   position: relative;
   width: 60px;

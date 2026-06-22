@@ -2,7 +2,7 @@
   "pages": {
     "about": {
       "title": "about",
-      "text": "Enthusiastic Frontend Developer with 7 years of experience in crafting engaging and user-friendly web applications. Proficient in TypeScript, JavaScript, SCSS, HTML, and frameworks like Lit, React, Vue and Angular. I thrive on translating design concepts into high-quality code, collaborating with cross-functional teams to deliver solutions on time. Always eager to embrace new technologies, I am committed to enhancing user experiences through clean, maintainable code. Let's create innovative digital solutions together!"
+      "text": "Frontend Developer with 7 years of experience building user-friendly web applications. I work mainly with TypeScript, JavaScript, SCSS, and HTML, and I'm comfortable across several frameworks, including Lit, React, Vue, and Angular. I enjoy turning design concepts into clean, maintainable code and working with cross-functional teams to ship solutions on time. I like picking up new technologies and keeping the focus on a solid user experience."
     },
     "companies": {
       "title": "companies",
@@ -11,17 +11,17 @@
           "role": "Frontend Developer",
           "location": "Fundão, Portugal",
           "details": [
-            "Designed and developed an internal web application for managing consultant assignments and performance tracking, utilizing React and TypeScript . This innovation streamlined operational processes and achieved a 20% reduction in administrative time , enhancing overall efficiency.",
-            "Developed two web applications (Apple Music and Spotify) for Volkswagen's infotainment system, significantly enhancing user experience and functionality. Collaborated within an Agile Scrum team , employing Angular with TypeScript and Jasmine for unit testing, resulting in a 15% reduction in bugs and improved overall code quality."
+            "Designed and built an internal web application for managing consultant assignments and tracking performance, using React and TypeScript.",
+            "Developed two web applications (Apple Music and Spotify integrations) for Volkswagen's infotainment system using Angular, TypeScript, and Jasmine for unit testing. Worked in an Agile Scrum team, coordinating closely with an external backend team and a separate UI/UX design team."
           ]
         },
         "softinsa": {
           "role": "Frontend Developer",
           "location": "Fundão, Portugal",
           "details": [
-            "Developed a robust web application for Global Via , enabling users to effortlessly manage toll payments and access additional services. Leveraged React and TypeScript to implement scalable micro-frontends, enhancing performance and user experience.",
-            "Developed web components and a full-stack web application for BMW , leveraging the Lit framework and TypeScript for building a web components library that were used as widgets in the sales website for BMW and MINI cars. Also helped develop a cockpit web application where this library of web components was used, as an additional tool for agents as well as testing the same widgets that were to be implemented in the sales website. This web application used the Lit framework for Frontend, alongside Node.js with Express.js for the backend. Actively collaborated within an Agile Scrum team , fostering continuous dialogue and idea exchange both with the development team and with the client. This project required some travelling to the client’s site for planning sessions and team-building events, enhancing project alignment and collaboration.",
-            "Leading the frontend development of a web application to create a robust and efficient solution for the management of public contracts and documents, within an Agile Scrum team, using AI tools, like Cline and Claude models, to boost development. Utilized Vue 3, Vuetifty and TypeScript, collaborated with an UX/UI designer to translate their Figma design system to the Frontend of the application. Also helped in the backend development, which used Java, Spring Boot and PostgreSQL to develop some full stack skills."
+            "Built a web application for Global Via that lets users manage toll payments and access related services. Used React and TypeScript to implement scalable micro-frontends, improving both performance and the user experience.",
+            "Developed a web components library and a full-stack web application for BMW using the Lit framework and TypeScript. The component library powered widgets on the sales websites for BMW and MINI. I also contributed to a cockpit application that used these same components as a tool for sales agents and as a testing ground for widgets before they went live on the sales sites. The cockpit used Lit on the frontend and Node.js with Express.js on the backend, where Express also served as a proxy for all widget requests. I worked in an Agile Scrum team in close contact with both the development team and the client, which included occasional travel to the client's site for planning sessions and team-building.",
+            "Led frontend development of a web application for managing public contracts and documents, working in an Agile Scrum team and using AI tools such as Cline and Claude to speed up development. Built with Vue 3, Vuetify, and TypeScript, working alongside a UX/UI designer to translate their Figma design system into the frontend. Also contributed to the backend (Java, Spring Boot, and PostgreSQL), gaining full-stack experience."
           ]
         }
       }
@@ -40,6 +40,7 @@
         "Styling": "Styling",
         "Languages": "Languages",
         "Testing": "Testing",
+        "AI tools": "AI Tools",
         "DevOps": "DevOps",
         "Build Tools": "Build Tools",
         "State Management": "State Management",

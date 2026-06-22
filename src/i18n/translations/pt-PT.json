@@ -2,7 +2,7 @@
   "pages": {
     "about": {
       "title": "sobre",
-      "text": "Sou um Frontend Developer entusiasta com 7 anos de experiência em construir aplicações web apelativas e intuitivas. Proificiente em TypeScript, JavaScript, SCSS, HTML e frameworks como Lit, React, Vue e Angular. Prospero a traduzir conceitos de design em código de alta qualidade, em colaboração com equipas multi-disciplinares para entregar soluções dentro do tempo. Estou sempre interessado em aprender novas tecnologias, e sou empenhado em melhorar a experiência do utilizador através de código limpo e sustentável. Vamos criar soluções digitais juntos!"
+      "text": "Frontend Developer com 7 anos de experiência no desenvolvimento de aplicações web intuitivas e fáceis de utilizar. Trabalho sobretudo com TypeScript, JavaScript, SCSS e HTML, e sinto-me à vontade em várias frameworks, incluindo Lit, React, Vue e Angular. Gosto de transformar conceitos de design em código limpo e de fácil manutenção, e de trabalhar com equipas multidisciplinares para entregar soluções dentro dos prazos. Aprecio aprender novas tecnologias e manter o foco numa boa experiência do utilizador."
     },
     "companies": {
       "title": "empresas",
@@ -11,20 +11,17 @@
           "role": "Programador Frontend",
           "location": "Fundão, Portugal",
           "details": [
-            "Desenvolvi e mantive aplicações web utilizando React e Node.js, melhorando a experiência do utilizador e o desempenho do sistema.",
-            "Colaborei com equipas multidisciplinares, incluindo designers, gestores de produto e outros engenheiros, para entregar soluções de software de elevada qualidade.",
-            "Implementei designs responsivos e assegurei a compatibilidade entre navegadores em todas as aplicações web.",
-            "Participei em revisões de código e orientei programadores juniores em boas práticas e normas de codificação."
+            "Concebi e desenvolvi uma aplicação web interna para a gestão de alocações de consultores e o acompanhamento de desempenho, utilizando React e TypeScript.",
+            "Desenvolvi duas aplicações web (integrações de Apple Music e Spotify) para o sistema de infoentretenimento da Volkswagen, utilizando Angular, TypeScript e Jasmine para testes unitários. Trabalhei numa equipa Agile Scrum, em articulação próxima com uma equipa externa de backend e uma equipa separada de design UI/UX."
           ]
         },
         "softinsa": {
           "role": "Programador Frontend",
           "location": "Fundão, Portugal",
           "details": [
-            "Construí interfaces de utilizador modernas e responsivas utilizando Vue.js e frameworks CSS modernas.",
-            "Trabalhei em estreita colaboração com designers de UX para implementar designs perfeitos ao pixel e animações fluidas.",
-            "Otimizei o desempenho da aplicação e reduzi os tempos de carregamento em 40% através de code splitting e lazy loading.",
-            "Integrei APIs RESTful e geri o estado com Vuex para fluxos de aplicação complexos."
+            "Desenvolvi uma aplicação web para a Global Via que permite aos utilizadores gerir o pagamento de portagens e aceder a serviços relacionados. Utilizei React e TypeScript para implementar micro-frontends escaláveis, melhorando tanto o desempenho como a experiência do utilizador.",
+            "Desenvolvi uma biblioteca de web components e uma aplicação web full-stack para a BMW, utilizando a framework Lit e TypeScript. A biblioteca de componentes alimentava os widgets dos websites de venda da BMW e da MINI. Contribuí também para uma aplicação de cockpit que utilizava esses mesmos componentes como ferramenta para os agentes comerciais e como ambiente de teste dos widgets antes de entrarem em produção nos sites de venda. O cockpit usava Lit no frontend e Node.js com Express.js no backend, onde o Express servia também de proxy para todos os pedidos dos widgets. Trabalhei numa equipa Agile Scrum, em contacto próximo com a equipa de desenvolvimento e com o cliente, o que incluiu deslocações pontuais às instalações do cliente para sessões de planeamento e atividades de team-building.",
+            "Liderei o desenvolvimento de frontend de uma aplicação web para a gestão de contratos e documentos públicos, numa equipa Agile Scrum e recorrendo a ferramentas de IA como o Cline e os modelos Claude para acelerar o desenvolvimento. Construída com Vue 3, Vuetify e TypeScript, em colaboração com um designer UX/UI para traduzir o respetivo design system em Figma para o frontend da aplicação. Contribuí também para o backend (Java, Spring Boot e PostgreSQL), adquirindo experiência full-stack."
           ]
         }
       }
@@ -43,6 +40,7 @@
         "Styling": "Estilos",
         "Languages": "Línguas programação",
         "Testing": "Testes",
+        "AI tools": "Ferramentas IA",
         "DevOps": "DevOps",
         "Build Tools": "Ferramentas de build",
         "State Management": "Gestão de estado",

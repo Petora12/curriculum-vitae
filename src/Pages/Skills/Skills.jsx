@@ -10,12 +10,13 @@ const Skills = ({ scrollContainerRef }) => {
   const isIconVisible = useIsCentered(pageRef, scrollContainerRef);
 
   const SKILLS_CATEGORIES = {
-    'Frontend Frameworks': ['React 19', 'Vue', 'Angular', 'Lit', 'Vuetify'],
+    'Frontend Frameworks': ['React 19', 'Vue 3', 'Angular', 'Lit', 'Vuetify'],
     Languages: ['TypeScript', 'JavaScript'],
     Backend: ['Node.js', 'Express.js'],
     Testing: ['Jasmine', 'Mocha/Chai', 'Mockoon'],
+    'AI tools': ['Cline', 'Claude models'],
     'Version Control': ['Github', 'Bitbucket'],
-    DevOps: ['CI/CD', 'Pipelines'],
+    DevOps: ['CI/CD'],
     'Project Management': ['JIRA', 'Confluence', 'Agile'],
     'Build Tools': ['Vite', 'Rollup'],
     Styling: ['SCSS', 'CSS'],

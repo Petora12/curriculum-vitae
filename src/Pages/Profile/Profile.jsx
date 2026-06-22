@@ -27,7 +27,7 @@ const Profile = ({ scrollProgress }) => {
     nameTranslateY;
 
   // Shared navbar end-state (Phase 3 target)
-  const navbarY = 7.5;
+  const navbarY = 10;
   const navbarX = 6;
   const navbarAvatarScale = 0.25;
   const navbarNameScale = 0.5;
@@ -122,6 +122,16 @@ const Profile = ({ scrollProgress }) => {
         >
           Pedro Silvestre
         </h1>
+        <p
+          className="profile-role"
+          style={{
+            opacity: scrollProgress > 1 ? 0 : 1,
+            visibility: scrollProgress > 1 ? 'hidden' : 'visible',
+            transition: 'opacity 0.3s ease, visibility 0.3s ease',
+          }}
+        >
+          Frontend developer
+        </p>
       </div>
       <div
         className="chevron-container"
