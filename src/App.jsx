@@ -9,6 +9,7 @@ import Languages from './Pages/Languages/Languages';
 import Hobbies from './Pages/Hobbies/Hobbies';
 import Contacts from './Pages/Contacts/Contacts';
 import './App.css';
+import { ArrowUp } from 'lucide-react';
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -40,6 +41,9 @@ function App() {
     };
   }, []);
 
+  const scrollToTop = () =>
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+
   return (
     <div className="App">
       <Navbar scrollProgress={scrollProgress} />
@@ -53,6 +57,16 @@ function App() {
         <Hobbies />
         <Contacts />
       </div>
+
+      {scrollProgress >= 2 && (
+        <button
+          className="scroll-button"
+          onClick={scrollToTop}
+          aria-label="Back to first page"
+        >
+          <ArrowUp strokeWidth={2.5} />
+        </button>
+      )}
     </div>
   );
 }

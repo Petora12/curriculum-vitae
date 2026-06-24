@@ -47,6 +47,63 @@ body {
   scrollbar-width: none;
 }
 
+.scroll-button {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+
+  border: none;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.scroll-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.scroll-button:focus {
+  outline: none;
+}
+
+/* visible focus ring for keyboard users */
+.scroll-button:focus-visible {
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #0f172a;
+}
+
+/* the arrow icon inside */
+.scroll-button svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-button {
+    transition: none;
+  }
+  .scroll-button:hover {
+    transform: none;
+  }
+}
+
 @media (max-width: 768px) {
   .scroll-container {
     scroll-snap-type: y proximity;

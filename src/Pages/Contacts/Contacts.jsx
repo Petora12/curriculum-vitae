@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import './Contacts.css';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useIsCentered } from '../../hooks/useIsCentered';
+import cvUrl from '../../assets/files/resume.pdf';
 
 const CONTACTS_DATA = [
   {
@@ -24,7 +25,7 @@ const CONTACTS_DATA = [
     type: 'CV / Resume',
     value: 'Download my CV',
     icon: FileText,
-    link: '/path-to-your-cv.pdf', // Update with actual CV path
+    link: cvUrl,
   },
   {
     id: 4,
@@ -72,7 +73,7 @@ const Contacts = ({ scrollContainerRef }) => {
                       style={{ animationDelay: `${index * 0.15}s` }}
                       target={isExternal ? '_blank' : '_self'}
                       rel={isExternal ? 'noopener noreferrer' : ''}
-                      download={isDownload ? true : undefined}
+                      download={isDownload ? 'PedroSilvestre_CV' : undefined}
                     >
                       <div className="contact-icon-circle">
                         <IconComponent className="contact-icon" />
