@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Building2, X } from 'lucide-react';
-import Company from '../../components/Company/company';
+import Company from '../../components/Company/Company';
 import CompanyDrawer from '../../components/Company/CompanyDrawer';
 import softinsaLogo from '../../assets/softinsa_logo.png';
 import capgeminiLogo from '../../assets/capgemini_logo.png';
