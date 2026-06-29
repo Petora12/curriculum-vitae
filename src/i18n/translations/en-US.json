@@ -8,7 +8,7 @@
       "title": "companies",
       "items": {
         "capgemini": {
-          "role": "Frontend Developer",
+          "role": "Jr. Frontend Developer",
           "location": "Fundão, Portugal",
           "details": [
             "Designed and built an internal web application for managing consultant assignments and tracking performance, using React and TypeScript.",

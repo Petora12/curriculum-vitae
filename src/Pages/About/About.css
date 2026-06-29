@@ -1,29 +1,30 @@
 .about-page {
   min-height: 100dvh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
 
 .about-content {
   display: flex;
-  flex-direction: row; /* was column — this is the bug */
+  flex-direction: row;
   width: 100%;
+  padding-top: calc(50vh - 38px);
 }
 
 .about-content-placeholder {
   width: 50%;
-  flex-shrink: 0; /* keep its width reserved even though it's empty */
+  flex-shrink: 0;
 }
 
 .about-content-right {
   width: 50%;
-  box-sizing: border-box; /* so the padding stays inside the 70% */
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding-right: 80px; /* moved here from .about-page */
+  padding-right: 80px;
 }
 
 .about-title {
@@ -44,19 +45,20 @@
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;
+    padding-top: 18vh;
   }
 
   .about-content-placeholder {
-    display: none; /* or width: 100% if you still need the space */
+    display: none;
   }
 
   .about-content-right {
     width: 100%;
-    padding-right: 0; /* drop the 80px so text doesn't crowd the edge */
-    padding: 0 24px; /* breathing room on both sides */
+    padding-right: 0;
+    padding: 0 24px;
   }
 
   .about-title {
-    font-size: 40px; /* 64px is huge on a phone */
+    font-size: 48px;
   }
 }

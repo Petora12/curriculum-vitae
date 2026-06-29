@@ -8,7 +8,7 @@
       "title": "empresas",
       "items": {
         "capgemini": {
-          "role": "Programador Frontend",
+          "role": "Programador Frontend Jr.",
           "location": "Fundão, Portugal",
           "details": [
             "Concebi e desenvolvi uma aplicação web interna para a gestão de alocações de consultores e o acompanhamento de desempenho, utilizando React e TypeScript.",
@@ -64,7 +64,7 @@
       }
     },
     "hobbies": {
-      "title": "Passatempos",
+      "title": "passatempos",
       "videogames": "Videojogos",
       "movies": "Filmes & Séries",
       "music": "Música",

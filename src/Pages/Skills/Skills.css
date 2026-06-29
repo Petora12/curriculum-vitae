@@ -164,7 +164,7 @@
 
 @media (max-width: 768px) {
   .skills-page {
-    scroll-snap-stop: normal; /* was always */
+    scroll-snap-stop: normal;
   }
 
   .skills-content {

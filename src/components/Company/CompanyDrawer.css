@@ -54,7 +54,6 @@
   flex-direction: row;
   align-items: center;
   gap: 28px;
-  /* leave room for absolute close button */
   padding-right: 56px;
   flex-shrink: 0;
 }

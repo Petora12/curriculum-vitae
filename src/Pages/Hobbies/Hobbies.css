@@ -99,11 +99,6 @@
   }
 }
 
-.hobby-card:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-8px);
-}
-
 .hobby-icon-circle {
   width: 80px;
   height: 80px;
@@ -113,11 +108,6 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-}
-
-.hobby-card:hover .hobby-icon-circle {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.1);
 }
 
 .hobby-icon {
