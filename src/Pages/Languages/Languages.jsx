@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import './Languages.css';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useIsCentered } from '../../hooks/useIsCentered';
+import { CircleFlagLanguage } from 'react-circle-flags';
 
 const LanguagesPage = ({ scrollContainerRef }) => {
   const { t } = useTranslation();
@@ -15,14 +16,22 @@ const LanguagesPage = ({ scrollContainerRef }) => {
       name: t('pages.languages.portuguese'),
       country: 'Portugal',
       proficiency: t('pages.languages.proeficency.native'),
-      flag: '🇵🇹', // Portugal flag emoji
+      flag: (
+        <>
+          <CircleFlagLanguage languageCode="pt" height="100" width="100" />
+        </>
+      ), // Portugal flag emoji
     },
     {
       id: 2,
       name: t('pages.languages.english'),
       country: 'US/UK',
       proficiency: t('pages.languages.proeficency.fluent'),
-      flag: '🇬🇧', // UK flag emoji (or use 🇺🇸 for US)
+      flag: (
+        <>
+          <CircleFlagLanguage languageCode="en-us" height="100" width="100" />
+        </>
+      ), // UK flag emoji (or use 🇺🇸 for US)
     },
   ];
 

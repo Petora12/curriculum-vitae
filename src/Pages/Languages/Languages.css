@@ -114,7 +114,7 @@
 
 .flag-emoji {
   font-size: 64px;
-  line-height: 1;
+  line-height: 0.5;
 }
 
 .language-name {

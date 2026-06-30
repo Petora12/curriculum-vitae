@@ -15,6 +15,7 @@
   align-items: center;
   flex: 1;
   width: 100%;
+  min-width: 0; /* allow children to shrink instead of overflowing */
 }
 
 .contacts-icon-section {
@@ -44,6 +45,8 @@
 .contacts-right-section {
   width: 70%;
   flex-shrink: 0;
+  min-width: 0; /* let this column shrink rather than push past the screen */
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,6 +57,9 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  width: 100%; /* tie to the parent instead of growing to the widest child */
+  max-width: 600px; /* same column width as the cards, so the title lines up */
+  box-sizing: border-box;
 }
 
 .contacts-title {
@@ -62,6 +68,7 @@
   color: white;
   margin: 0;
   text-align: left;
+  overflow-wrap: break-word; /* never let the title push past the edge */
 }
 
 .contacts-cards-section {
@@ -77,6 +84,7 @@
   gap: 20px;
   width: 100%;
   max-width: 600px;
+  box-sizing: border-box;
 }
 
 .contact-card {
@@ -137,6 +145,7 @@
   flex-direction: column;
   gap: 5px;
   flex: 1;
+  min-width: 0; /* KEY: lets long emails/URLs wrap instead of forcing overflow */
 }
 
 .contact-type {
@@ -153,6 +162,7 @@
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
   text-align: left;
+  overflow-wrap: anywhere; /* break long unbreakable strings (emails, URLs) */
 }
 
 /* Responsive adjustments */
