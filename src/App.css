@@ -21,7 +21,7 @@ body {
 
 .App {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   background: linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%);
   position: relative;
   overflow: hidden;
@@ -29,7 +29,7 @@ body {
 
 .scroll-container {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-snap-type: y mandatory;

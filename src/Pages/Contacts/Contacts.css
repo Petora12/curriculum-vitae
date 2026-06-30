@@ -5,6 +5,7 @@
   scroll-snap-align: start;
   scroll-snap-stop: always;
   padding: 100px 60px 60px 60px;
+  box-sizing: border-box; /* keep the side padding inside the width, no overflow */
   position: relative;
 }
 
@@ -83,6 +84,7 @@
   border-radius: 16px;
   backdrop-filter: blur(10px);
   padding: 25px 30px;
+  box-sizing: border-box; /* padding stays inside the card width */
   display: flex;
   align-items: center;
   gap: 25px;
@@ -204,6 +206,11 @@
 }
 
 @media (max-width: 768px) {
+  .contacts-page {
+    /* smaller, consistent side gutter on phones (was 60px) */
+    padding: 90px 24px 40px 24px;
+  }
+
   .contacts-content {
     flex-direction: column;
     gap: 40px;

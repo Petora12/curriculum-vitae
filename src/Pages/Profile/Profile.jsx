@@ -19,30 +19,26 @@ const useIsMobile = (query = '(max-width: 768px)') => {
   return isMobile;
 };
 
-// Base sizes (px). Avatar shrinks to whatever the navbar slot actually is.
-const BASE_AVATAR = 200;
-const BASE_NAME_FONT = 48; // the name's "100%" size on a wide screen
+// Maximums (px). Real sizes scale DOWN from these to fit small screens.
+const MAX_AVATAR = 200;
+const BASE_NAME_FONT = 48;
 const NAVBAR_NAME_SCALE = 0.5;
-const STACK_GAP = 30; // matches the column gap when expanded
-const NAME_GAP = 16; // horizontal gap between avatar and name when docked
-const NAME_MAX_WIDTH_RATIO = 0.9; // expanded name may use up to 90% of the viewport width
+const MAX_STACK_GAP = 30;
+const NAME_GAP = 16;
+const NAME_MAX_WIDTH_RATIO = 0.9;
 
 const Profile = ({ scrollProgress }) => {
   const isMobile = useIsMobile();
   const nameRef = useRef(null);
-  const nameFontRef = useRef(BASE_NAME_FONT); // the font size currently applied to the name
+  const nameFontRef = useRef(BASE_NAME_FONT);
 
-  // Everything we need is MEASURED, never hardcoded in vw/vh.
   const [viewport, setViewport] = useState(() => ({
     w: typeof window !== 'undefined' ? window.innerWidth : 1280,
     h: typeof window !== 'undefined' ? window.innerHeight : 800,
   }));
-  // Fallback matches the navbar's default padding (40px / 20px) + 50px slot.
   const [slot, setSlot] = useState({ cx: 65, cy: 45, size: 50 });
-  // nameBase = the name's intrinsic size measured at BASE_NAME_FONT (48px).
   const [nameBase, setNameBase] = useState({ w: 260, h: 56 });
 
-  // Measure the real navbar slot + viewport on mount and whenever the layout can change.
   useLayoutEffect(() => {
     const measure = () => {
       setViewport({ w: window.innerWidth, h: window.innerHeight });
@@ -53,13 +49,11 @@ const Profile = ({ scrollProgress }) => {
         setSlot({
           cx: r.left + r.width / 2,
           cy: r.top + r.height / 2,
-          size: r.height, // avatar will dock to exactly this size
+          size: r.height,
         });
       }
 
       if (nameRef.current) {
-        // Normalise the measured width back to the 48px reference, dividing by
-        // whatever font is actually applied (responsive font x dock scale).
         const r = nameRef.current.getBoundingClientRect();
         const factor = (nameFontRef.current || BASE_NAME_FONT) / BASE_NAME_FONT;
         setNameBase({ w: r.width / factor, h: r.height / factor });
@@ -74,34 +68,35 @@ const Profile = ({ scrollProgress }) => {
   const W = viewport.w;
   const H = viewport.h;
 
-  // --- Drive the avatar center (ax, ay), its size, and a single "dock" amount ---
+  // Scale the avatar + gaps to the actual viewport so the stack always fits,
+  // leaving room for the chevron on short phones.
+  const baseAvatar = Math.min(MAX_AVATAR, W * 0.5, H * 0.24);
+  const stackGap = H < 700 ? 16 : MAX_STACK_GAP;
+
+  // --- avatar center (ax, ay), size, and the "dock" amount ---
   let ax, ay, avatarSize, dock;
 
   if (isMobile) {
-    // Center -> navbar directly.
     const p = clamp(scrollProgress, 0, 1);
     ax = lerp(W / 2, slot.cx, p);
     ay = lerp(H / 2, slot.cy, p);
-    avatarSize = lerp(BASE_AVATAR, slot.size, p);
+    avatarSize = lerp(baseAvatar, slot.size, p);
     dock = p;
   } else if (scrollProgress < 1) {
-    // Phase 1: center -> left (vertical center holds).
     const p = clamp(scrollProgress, 0, 1);
     ax = lerp(W / 2, 0.2 * W, p);
     ay = H / 2;
-    avatarSize = BASE_AVATAR;
+    avatarSize = baseAvatar;
     dock = 0;
   } else {
-    // Phase 2: left -> measured navbar slot.
     const q = clamp(scrollProgress - 1, 0, 1);
     ax = lerp(0.2 * W, slot.cx, q);
     ay = lerp(H / 2, slot.cy, q);
-    avatarSize = lerp(BASE_AVATAR, slot.size, q);
+    avatarSize = lerp(baseAvatar, slot.size, q);
     dock = q;
   }
 
-  // Responsive base font: largest size (up to 48px) that fits the viewport width.
-  // width at font F = nameBase.w * (F / 48), so the F that fills maxWidth is:
+  // Responsive base font: largest size (up to 48px) that fits the width.
   const maxNameWidth = W * NAME_MAX_WIDTH_RATIO;
   const fitFont =
     nameBase.w > 0
@@ -109,7 +104,6 @@ const Profile = ({ scrollProgress }) => {
       : BASE_NAME_FONT;
   const baseNameFont = Math.min(BASE_NAME_FONT, fitFont);
 
-  // Name: responsive size when expanded -> docked size beside the avatar.
   const nameScale = lerp(1, NAVBAR_NAME_SCALE, dock);
   const appliedFont = baseNameFont * nameScale;
   nameFontRef.current = appliedFont;
@@ -119,20 +113,21 @@ const Profile = ({ scrollProgress }) => {
   const nameH = nameBase.h * fontFactor;
 
   const belowX = ax;
-  const belowY = ay + avatarSize / 2 + STACK_GAP + nameH / 2;
+  const belowY = ay + avatarSize / 2 + stackGap + nameH / 2;
   const besideX = ax + avatarSize / 2 + NAME_GAP + nameW / 2;
   const besideY = ay;
 
   const nameX = lerp(belowX, besideX, dock);
   const nameY = lerp(belowY, besideY, dock);
 
-  // On mobile the name fades out as it docks; on desktop it stays.
   const nameOpacity = isMobile ? clamp(1 - dock * 2, 0, 1) : 1;
 
-  // Role sits under the name while expanded, fades out as we dock.
   const roleX = ax;
-  const roleY = belowY + nameH / 2 + STACK_GAP + 14;
+  const roleY = belowY + nameH / 2 + stackGap + 14;
   const roleOpacity = clamp(1 - dock * 2.5, 0, 1);
+
+  // Only show the scroll-down chevron when there's vertical room for it.
+  const showChevron = H >= 560 && scrollProgress < 0.25;
 
   const fixed = (x, y) => ({
     position: 'fixed',
@@ -153,6 +148,7 @@ const Profile = ({ scrollProgress }) => {
           ...fixed(ax, ay),
           width: `${avatarSize}px`,
           height: `${avatarSize}px`,
+          zIndex: 1,
         }}
       />
 
@@ -182,21 +178,23 @@ const Profile = ({ scrollProgress }) => {
         Frontend developer
       </p>
 
-      <div
-        className="chevron-container"
-        style={{
-          position: 'absolute',
-          bottom: '2rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          opacity: Math.max(0, 1 - scrollProgress * 4),
-          pointerEvents: 'none',
-        }}
-      >
-        <ChevronDown className="chevron-icon" size={36} />
-        <ChevronDown className="chevron-icon" size={36} />
-        <ChevronDown className="chevron-icon" size={36} />
-      </div>
+      {showChevron && (
+        <div
+          className="chevron-container"
+          style={{
+            position: 'absolute',
+            bottom: 'calc(2rem + env(safe-area-inset-bottom))',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            opacity: Math.max(0, 1 - scrollProgress * 4),
+            pointerEvents: 'none',
+          }}
+        >
+          <ChevronDown className="chevron-icon" size={36} />
+          <ChevronDown className="chevron-icon" size={36} />
+          <ChevronDown className="chevron-icon" size={36} />
+        </div>
+      )}
     </div>
   );
 };
