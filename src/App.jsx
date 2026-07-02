@@ -10,6 +10,7 @@ import Hobbies from './Pages/Hobbies/Hobbies';
 import Contacts from './Pages/Contacts/Contacts';
 import './App.css';
 import { ArrowUp } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -67,6 +68,7 @@ function App() {
           <ArrowUp strokeWidth={2.5} />
         </button>
       )}
+      <Analytics />
     </div>
   );
 }

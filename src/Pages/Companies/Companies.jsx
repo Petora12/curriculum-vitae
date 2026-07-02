@@ -17,18 +17,18 @@ const Companies = ({ scrollContainerRef }) => {
 
   const COMPANIES_DATA = [
     {
-      id: 'capgemini',
-      image: capgeminiLogo,
-      name: 'Capgemini Engineering',
-      startDate: 'May 2019',
-      endDate: 'Apr 2022',
-    },
-    {
       id: 'softinsa',
       image: softinsaLogo,
       name: 'Softinsa - IBM',
       startDate: 'May 2022',
       endDate: 'Jun 2026',
+    },
+    {
+      id: 'capgemini',
+      image: capgeminiLogo,
+      name: 'Capgemini Engineering',
+      startDate: 'May 2019',
+      endDate: 'Apr 2022',
     },
   ];
 
