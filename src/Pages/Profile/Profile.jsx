@@ -1,6 +1,6 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import './Profile.css';
-import profileAvatar from '../../assets/profile_pic.png';
+import profileAvatar from '../../assets/profile_pic.jpg';
 import { ChevronDown } from 'lucide-react';
 
 const lerp = (a, b, t) => a + (b - a) * t;

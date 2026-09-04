@@ -14,7 +14,7 @@ const Skills = ({ scrollContainerRef }) => {
     Languages: ['TypeScript', 'JavaScript'],
     Backend: ['Node.js', 'Express.js'],
     Testing: ['Jasmine', 'Mocha/Chai', 'Mockoon'],
-    'AI tools': ['Cline', 'Claude models'],
+    'AI tools': ['Cline', 'Claude'],
     'Version Control': ['Github', 'Bitbucket'],
     DevOps: ['CI/CD'],
     'Project Management': ['JIRA', 'Confluence', 'Agile'],
